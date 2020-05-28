@@ -4,6 +4,13 @@ body {
   margin: 0;
 }
 
+.error {
+  color: red;
+  position: absolute;
+  top: 175px;
+  left: 20px;
+}
+
 tr:nth-child(even) {
   background-color: #ecfbfc;
 }
@@ -17,6 +24,8 @@ th {
   align-items: center;
   background-color: #c02739;
   color: #fff;
+  position: sticky;
+  top: 0;
 }
 
 td {
@@ -53,6 +62,7 @@ td {
 .work1 {
   grid-area: work1;
   position: fixed;
+  width: 450px;
 }
 
 .virusImage {
@@ -61,12 +71,16 @@ td {
   position: absolute;
   transform: rotate(90deg);
   right: 1%;
+  top: 200px;
 }
 
 .work2 {
   grid-area: work2;
   height: 100%;
   overflow-y: auto;
+  position: fixed;
+  top: 175px;
+  left: 480px;
 }
 
 .image {
@@ -155,21 +169,42 @@ button:hover {
   }
 
   .grid {
+    padding: 120px 20px;
     grid-template-columns: 1fr;
     grid-template-areas:
       "work1"
-      "work2"
-      "work3"
-      "work4"
-      "work5"
-      "work6";
+      "work2";
   }
 
   .work1 {
     padding-top: 10px;
+    position: sticky;
+    top: 150px;
+    width: unset;
+  }
+
+  .work2 {
+    margin-top: 20px;
+    padding-right: 20px;
+    position: fixed;
+    top: 230px;
+    left: 20px;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
   }
 
   .virusImage {
     display: none;
+  }
+
+  .modal p {
+    font-size: 10px;
+  }
+
+  .error {
+    top: 130px;
   }
 }
