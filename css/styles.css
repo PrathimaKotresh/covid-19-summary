@@ -76,7 +76,7 @@ td {
 
 .work2 {
   grid-area: work2;
-  height: 100%;
+  height: 75%;
   overflow-y: auto;
   position: fixed;
   top: 175px;
