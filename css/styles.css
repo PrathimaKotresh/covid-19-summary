@@ -4,8 +4,12 @@ body {
   margin: 0;
 }
 
-table {
-  border-color: blue;
+tr:nth-child(even) {
+  background-color: #ecfbfc;
+}
+
+tr:hover {
+  background-color: #9dc6a7;
 }
 
 th {
@@ -13,12 +17,10 @@ th {
   align-items: center;
   background-color: #c02739;
   color: #fff;
-  border: 1px solid #ddd;
 }
 
 td {
   text-align: center;
-  border: 1px solid #ddd;
 }
 
 .header {
@@ -101,10 +103,13 @@ button:hover {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+
   /* to show it above other content */
   z-index: 999;
+
   /* to allow scrolling if the screen is not high enough */
   overflow: auto;
+
   /* this is used to center the modal */
   display: grid;
   text-align: center;
@@ -141,16 +146,30 @@ button:hover {
 }
 
 @media all and (max-width: 750px) {
-  .countryButton {
-    margin-top: 30px;
-    font-size: 0.5em;
+  body {
+    font-size: 10px;
   }
 
-  .modal h1 {
+  .headerTitle {
     font-size: 20px;
   }
 
-  .modal p {
-    font-size: 15px;
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "work1"
+      "work2"
+      "work3"
+      "work4"
+      "work5"
+      "work6";
+  }
+
+  .work1 {
+    padding-top: 10px;
+  }
+
+  .virusImage {
+    display: none;
   }
 }

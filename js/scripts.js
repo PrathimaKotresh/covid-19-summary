@@ -18,7 +18,6 @@ var covid19Repository = (function() {
     // global details division
     //create a table to display global details
     var virusImage = $('<img src="./img/virus.png" class="virusImage" alt="image of corona virus">');
-
     var $table = $('<table>');
     $table.append('<caption></caption>')
       // thead
@@ -32,7 +31,6 @@ var covid19Repository = (function() {
       // add row
       $tbody.append('<tr />').children('tr:last')
         .append("<td>" + key + ' : ' + value + "</td>")
-
     });
 
     // add table to dom
@@ -88,7 +86,6 @@ var covid19Repository = (function() {
   function showModal(title, country) {
     // Clear all existing modal content
     $modalContainer.empty();
-
     var $modal = $('<div class="modal"/>');
 
     // Add the new modal content
@@ -124,7 +121,6 @@ var covid19Repository = (function() {
 
     // add last updated element
     var dateElement = $('<p>Last updated:'  + country.Date + '</p>');
-
     $modal.append(closeButtonElement);
     $modal.append(titleElement);
     $modal.append(countryElement);
@@ -137,7 +133,6 @@ var covid19Repository = (function() {
     $modal.append(imageElement);
     $modal.append(dateElement);
     $modalContainer.append($modal);
-
     $modalContainer.addClass('is-visible');
   }
 
@@ -239,10 +234,6 @@ covid19Repository.loadList().then(function() {
     covid19Repository.addListItem(index, country);
   });
 });
-
-
-
-// Header part
 
 // Header part
 var headerTitle = $('<h1 class="headerTitle">COVID-19 Tracker</h1>');
