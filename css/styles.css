@@ -1,0 +1,160 @@
+body {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+
+table {
+  border-color: blue;
+}
+
+th {
+  width: 450px;
+  align-items: center;
+  background-color: #c02739;
+  color: #fff;
+    border: 1px solid #ddd;
+}
+
+td {
+  text-align: center;
+    border: 1px solid #ddd;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  padding: 50px;
+  align-items: flex-start;
+  background-image: url("../img/logo2.jpg");
+  font-family: 'Libre Baskerville', serif;
+  font-family: 'Piedra', cursive;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 30px;
+}
+
+.headerTitle {
+  font-size: 50px;
+  color: white;
+  margin: 0;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.grid {
+  display: grid;
+  margin-top: 0;
+  grid-template-columns: 1fr 2fr;
+  padding: 175px 20px;
+  grid-template-areas: "work1 work2";
+}
+
+.work1 {
+  grid-area: work1;
+  position: fixed;
+  border: solid 0,5px;
+  border-radius: 10px;
+}
+
+.virusImage {
+  width: 800px;
+  border-radius: 50%;
+  position: absolute;
+  transform: rotate(90deg);
+  right: 1%;
+}
+
+.work2 {
+  grid-area: work2;
+  height: 100%;
+  overflow-y: auto;
+  border: solid 0,5px;
+  border-radius: 10px;
+}
+
+.image {
+  width: 400px;
+  height: 100px;
+}
+
+.country-list {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  background-color: #e4e4e4;
+}
+
+button {
+border: none;
+font-size: 15px;
+}
+
+button:hover {
+  color: blue;
+}
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* to show it above other content */
+  z-index: 999;
+  /* to allow scrolling if the screen is not high enough */
+  overflow: auto;
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
+
+.modal {
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 15px;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.modal-close {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: #777;
+  text-decoration: underline;
+}
+
+.modal h1 {
+  margin: 0 0 50px 0;
+  text-align: left;
+}
+
+.modal p {
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+@media all and (max-width: 750px) {
+  .countryButton {
+    margin-top: 30px;
+    font-size: 0.5em;
+  }
+
+  .modal h1 {
+    font-size: 20px;
+  }
+
+  .modal p {
+    font-size: 15px;
+  }
+}
