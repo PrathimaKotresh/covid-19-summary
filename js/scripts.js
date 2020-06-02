@@ -237,7 +237,7 @@ covid19Repository.loadList().then(function() {
 
 // Header part
 var headerTitle = $('<h1 class="headerTitle">COVID-19 Tracker</h1>');
-$('.header').append(headerTitle);
+$('.header').prepend(headerTitle);
 
 var virusImage = $('<img src="./img/virus.png" class="virusImage" alt="image of corona virus">');
 $('.work1').append(virusImage);

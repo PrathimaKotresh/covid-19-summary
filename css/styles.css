@@ -11,6 +11,10 @@ body {
   left: 20px;
 }
 
+a {
+  color: white;
+}
+
 tr:nth-child(even) {
   background-color: #ecfbfc;
 }
@@ -35,18 +39,17 @@ td {
 .header {
   width: 100%;
   position: fixed;
-  padding: 35px;
-  align-items: flex-start;
-  background-image: url("../img/logo2.jpg");
+  padding: 10px 20px;
+  background-color: #5b8c85;
   font-family: 'Libre Baskerville', serif;
   font-family: 'Piedra', cursive;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 30px;
+  font-size: 35px;
+  color: white;
 }
 
 .headerTitle {
   font-size: 50px;
-  color: white;
   margin: 0;
   font-family: 'Libre Baskerville', serif;
 }
@@ -55,7 +58,7 @@ td {
   display: grid;
   margin-top: 0;
   grid-template-columns: 1fr 2fr;
-  padding: 150px 20px;
+  padding: 120px 20px;
   grid-template-areas: "work1 work2";
 }
 
@@ -63,15 +66,15 @@ td {
   grid-area: work1;
   position: fixed;
   width: 450px;
+  padding-left: 0;
 }
 
 .virusImage {
-  width: 800px;
+  width: 550px;
   border-radius: 50%;
   position: absolute;
-  transform: rotate(90deg);
-  right: 1%;
-  top: 200px;
+  right: 20%;
+  top: 220px;
 }
 
 .work2 {
@@ -79,8 +82,9 @@ td {
   height: 75%;
   overflow-y: auto;
   position: fixed;
-  top: 150px;
+  top: 120px;
   left: 480px;
+  text-align: center;
 }
 
 .image {
@@ -98,10 +102,6 @@ td {
 button {
   border: none;
   font-size: 15px;
-}
-
-button:hover {
-  color: blue;
 }
 
 #modal-container {
@@ -166,6 +166,14 @@ button:hover {
 
   .headerTitle {
     font-size: 20px;
+  }
+
+  .navbarCollapse {
+    font-size: 16px;
+  }
+
+  .navbarItem {
+    padding: 0;
   }
 
   .grid {
