@@ -35,7 +35,7 @@ td {
 .header {
   width: 100%;
   position: fixed;
-  padding: 50px;
+  padding: 35px;
   align-items: flex-start;
   background-image: url("../img/logo2.jpg");
   font-family: 'Libre Baskerville', serif;
@@ -55,7 +55,7 @@ td {
   display: grid;
   margin-top: 0;
   grid-template-columns: 1fr 2fr;
-  padding: 175px 20px;
+  padding: 150px 20px;
   grid-template-areas: "work1 work2";
 }
 
@@ -79,7 +79,7 @@ td {
   height: 75%;
   overflow-y: auto;
   position: fixed;
-  top: 175px;
+  top: 150px;
   left: 480px;
 }
 

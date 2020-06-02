@@ -55,7 +55,7 @@ var covid19Repository = (function() {
 
   // funtion to create list of button to each country in frontend
   function addListItem(index, country) {
-    var markup = "<tr><td>" + country.Country + "</td><td>" + country.TotalConfirmed + "</td><td><button class=\"moreDetailsButton" + index + "\">Click</button></td></tr>";
+    var markup = "<tr><td>" + country.Country + "</td><td>" + country.TotalConfirmed + "</td><td><button class=\"btn bg-transparent btn-md moreDetailsButton"+ index + "\">Click</button></td></tr>";
     $(".countryTable tbody").append(markup);
     clickShowDetailsButton(index, country);
   }
