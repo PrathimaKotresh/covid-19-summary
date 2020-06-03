@@ -35,7 +35,7 @@ var covid19Repository = (function() {
   // funtion to create list of button to each country in frontend
   function addListItem(index, country) {
     var $globalFactsListGroup = $('.countryTableBody');
-    var markup = "<tr><td>" + country.Country + "</td><td>" + country.TotalConfirmed + "</td><td><button type=\"button\" class=\"btn bg-transparent btn-md moreDetailsButton"+ index + "\" data-toggle=\"modal\" data-target=\"#moreDetailsModal\">Click</button></td></tr>";
+    var markup = "<tr><td>" + country.Country + "</td><td>" + country.TotalConfirmed + "</td><td><button type=\"button\" class=\"btn bg-transparent btn-md moreDetailsButton" + index + "\" data-toggle=\"modal\" data-target=\"#moreDetailsModal\">Click</button></td></tr>";
     $globalFactsListGroup.append(markup);
     clickShowDetailsButton(index, country);
   }
