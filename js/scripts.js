@@ -15,48 +15,28 @@ var covid19Repository = (function() {
   }
 
   function addGlobalDataTableStructure() {
-    // global details division
-    //create a table to display global details
-    var $table = $('<table>');
-    $table.append('<caption></caption>')
-      // thead
-      .append('<thead>').children('thead')
-      .append('<tr />').children('tr').append('<th>Global Quick Facts:</th>');
-
-    //tbody
-    var $tbody = $table.append('<tbody />').children('tbody');
-
+    var $globalFactsListGroup = $('.globalFactsListGroup');
+    var $globalFactsHeading = $('.globalFactsHeading');
+    $globalFactsHeading
+      .append("<th>Global Quick Facts:</th>")
     $.each(globalData, function(key, value) {
       // add row
-      $tbody.append('<tr />').children('tr:last')
-        .append("<td>" + key + ' : ' + value + "</td>")
+      $globalFactsListGroup
+        .append("<li class=\"list-group-item\">" + key + " : " + value + "</li>")
     });
-
-    // add table to dom
-    $('.work1').append($table);
   }
 
-  function createCountryTableStructure() {
-    // Country wise details division
-    // create a table to display country details
-    var $table2 = $('<table class="countryTable">');
-    // caption
-    $table2.append('<caption></caption>')
-      // thead
-      .append('<thead>').children('thead')
-      .append('<tr />').children('tr').append('<th>Country Name</th><th>Total Cases</th><th>More Details</th>');
-
-    //tbody
-    var $tbody2 = $table2.append('<tbody />').children('tbody');
-
-    // add table to dom
-    $('.work2').append($table2);
+  function addCountryTableHeadline() {
+    var $countryTableHeadline = $('.countryTableHeadline');
+    $countryTableHeadline
+      .append("<th>Country Name</th><th>Total Cases</th><th>More Details</th>")
   }
 
   // funtion to create list of button to each country in frontend
   function addListItem(index, country) {
+    var $globalFactsListGroup = $('.countryTableBody');
     var markup = "<tr><td>" + country.Country + "</td><td>" + country.TotalConfirmed + "</td><td><button type=\"button\" class=\"btn bg-transparent btn-md moreDetailsButton"+ index + "\" data-toggle=\"modal\" data-target=\"#moreDetailsModal\">Click</button></td></tr>";
-    $(".countryTable tbody").append(markup);
+    $globalFactsListGroup.append(markup);
     clickShowDetailsButton(index, country);
   }
 
@@ -132,7 +112,7 @@ var covid19Repository = (function() {
 
   function addErrorMessage() {
     var error = $('.error');
-    var para = $('<p>Data not available at the moment! Please try again later...</p>');
+    var para = $('<p>Data not available at the moment! Please try again...</p>');
     error.append(para);
   }
 
@@ -159,7 +139,7 @@ var covid19Repository = (function() {
         add(country);
       });
       addGlobalDataTableStructure();
-      createCountryTableStructure();
+      addCountryTableHeadline();
     }).catch(function(e) {
       hideLoadingMessage();
       addErrorMessage();
