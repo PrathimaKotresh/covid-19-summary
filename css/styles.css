@@ -1,6 +1,6 @@
 body {
   font-family: 'Orbitron', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
 }
 
@@ -30,8 +30,9 @@ td {
 }
 
 .table td {
+  border: 0;
+  margin: 0;
   padding: 0;
-  border-top: 0;
 }
 
 .table th {
@@ -94,7 +95,7 @@ tr:hover {
 
 .work2 {
   grid-area: work2;
-  height: 75%;
+  height: 85%;
   overflow-y: auto;
   position: fixed;
   top: 120px;
