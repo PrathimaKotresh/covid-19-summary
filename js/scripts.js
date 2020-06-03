@@ -18,7 +18,7 @@ var covid19Repository = (function() {
     var $globalFactsListGroup = $('.globalFactsListGroup');
     var $globalFactsHeading = $('.globalFactsHeading');
     $globalFactsHeading
-      .append("<th>Global Quick Facts:</th>")
+      .append("<tr><th>Global Quick Facts:</th></tr>")
     $.each(globalData, function(key, value) {
       // add row
       $globalFactsListGroup
@@ -29,7 +29,7 @@ var covid19Repository = (function() {
   function addCountryTableHeadline() {
     var $countryTableHeadline = $('.countryTableHeadline');
     $countryTableHeadline
-      .append("<th>Country Name</th><th>Total Cases</th><th>More Details</th>")
+      .append("<tr><th>Country Name</th><th>Total Cases</th><th>More Details</th></tr>")
   }
 
   // funtion to create list of button to each country in frontend
