@@ -2,7 +2,7 @@ var covid19Repository = (function() {
   var covid19CountriesList = [];
   var globalData;
   var apiUrl = 'https://api.covid19api.com/summary';
-  var $modalContainer = $('#modal-container');
+  var $modalBodyContainer = $('.modal-body');
 
   // function to add a country object to country list
   function add(country) {
@@ -55,7 +55,7 @@ var covid19Repository = (function() {
 
   // funtion to create list of button to each country in frontend
   function addListItem(index, country) {
-    var markup = "<tr><td>" + country.Country + "</td><td>" + country.TotalConfirmed + "</td><td><button class=\"btn bg-transparent btn-md moreDetailsButton"+ index + "\">Click</button></td></tr>";
+    var markup = "<tr><td>" + country.Country + "</td><td>" + country.TotalConfirmed + "</td><td><button type=\"button\" class=\"btn bg-transparent btn-md moreDetailsButton"+ index + "\" data-toggle=\"modal\" data-target=\"#moreDetailsModal\">Click</button></td></tr>";
     $(".countryTable tbody").append(markup);
     clickShowDetailsButton(index, country);
   }
@@ -83,15 +83,7 @@ var covid19Repository = (function() {
   // function to open a modal to show country details
   function showModal(title, country) {
     // Clear all existing modal content
-    $modalContainer.empty();
-    var $modal = $('<div class="modal"/>');
-
-    // Add the new modal content
-    var closeButtonElement = $('<button class="modal-close">Close</button>');
-    closeButtonElement.on('click', hideModal);
-
-    // add title element
-    var titleElement = $('<h1>' + title + '</h1>');
+    $modalBodyContainer.empty();
 
     // add country name element
     var countryElement = $('<p>Country: ' + country.Country + '</p>');
@@ -119,49 +111,18 @@ var covid19Repository = (function() {
 
     // add last updated element
     var dateElement = $('<p>Last updated:' + country.Date + '</p>');
-    $modal.append(closeButtonElement);
-    $modal.append(titleElement);
-    $modal.append(countryElement);
-    $modal.append(totalConfirmedElement);
-    $modal.append(newConfirmedElement);
-    $modal.append(totalDeathsElement);
-    $modal.append(newDeathsElement);
-    $modal.append(totalRecoveredElement);
-    $modal.append(newRecoveredElement);
-    $modal.append(imageElement);
-    $modal.append(dateElement);
-    $modalContainer.append($modal);
-    $modalContainer.addClass('is-visible');
+    $modalBodyContainer.append(countryElement);
+    $modalBodyContainer.append(totalConfirmedElement);
+    $modalBodyContainer.append(newConfirmedElement);
+    $modalBodyContainer.append(totalDeathsElement);
+    $modalBodyContainer.append(newDeathsElement);
+    $modalBodyContainer.append(totalRecoveredElement);
+    $modalBodyContainer.append(newRecoveredElement);
+    $modalBodyContainer.append(imageElement);
+    $modalBodyContainer.append(dateElement);
   }
 
   var dialogPromiseReject; // This can be set later, by showDialog
-
-  // function to hide model
-  function hideModal() {
-    var modalContainer = $('#modal-container');
-    modalContainer.removeClass('is-visible');
-
-    if (dialogPromiseReject) {
-      dialogPromiseReject();
-      dialogPromiseReject = null;
-    }
-  }
-
-  // add escape event to close the model
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && $modalContainer[0].classList.contains('is-visible')) {
-      hideModal();
-    }
-  });
-
-  $modalContainer.on('click', function(event) {
-    // Since this is also triggered when clicking INSIDE the modal container,
-    // We only want to close if the user clicks directly on the overlay
-    var target = event.target;
-    if (target.id === $modalContainer[0].id) {
-      hideModal();
-    }
-  });
 
   // function to show all country details in console
   function showDetails(item) {
