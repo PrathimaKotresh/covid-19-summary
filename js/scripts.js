@@ -18,31 +18,31 @@ var covid19Repository = (function() {
     var $globalFactsListGroup = $('.globalFactsListGroup');
     var $globalFactsHeading = $('.globalFactsHeading');
     $globalFactsHeading
-      .append("<tr><th>Global Quick Facts:</th></tr>")
+      .append('<tr><th>Global Quick Facts:</th></tr>')
     $.each(globalData, function(key, value) {
       // add row
       $globalFactsListGroup
-        .append("<li class=\"list-group-item\">" + key + " : " + value + "</li>")
+        .append('<li class=\'list-group-item\'>' + key + ' : ' + value + '</li>')
     });
   }
 
   function addCountryTableHeadline() {
     var $countryTableHeadline = $('.countryTableHeadline');
     $countryTableHeadline
-      .append("<tr><th>Country Name</th><th>Total Cases</th><th>More Details</th></tr>")
+      .append('<tr><th>Country Name</th><th>Total Cases</th><th>More Details</th></tr>')
   }
 
   // funtion to create list of button to each country in frontend
   function addListItem(index, country) {
     var $globalFactsListGroup = $('.countryTableBody');
-    var markup = "<tr><td>" + country.Country + "</td><td>" + country.TotalConfirmed + "</td><td><button type=\"button\" class=\"btn bg-transparent btn-md moreDetailsButton" + index + "\" data-toggle=\"modal\" data-target=\"#moreDetailsModal\">Click</button></td></tr>";
+    var markup = '<tr><td>' + country.Country + '</td><td>' + country.TotalConfirmed + '</td><td><button type=\'button\' class=\'btn bg-transparent btn-md moreDetailsButton' + index + '\' data-toggle=\'modal\' data-target=\'#moreDetailsModal\'>Click</button></td></tr>';
     $globalFactsListGroup.append(markup);
     clickShowDetailsButton(index, country);
   }
 
   // function to handle country button click to show country details
   function clickShowDetailsButton(index, country) {
-    $('.moreDetailsButton' + index).on('click', function(event) {
+    $('.moreDetailsButton' + index).on('click', function() {
       showDetails(country);
     });
   }
@@ -87,7 +87,7 @@ var covid19Repository = (function() {
     var newRecoveredElement = $('<p>New Recovered: ' + country.NewRecovered + '</p>');
 
     // add country image element
-    var imageElement = $('<img src=\"https://www.countryflags.io/' + country.CountryCode + '/flat/64.png\"' + 'width=\"200\" height=\"200\" alt=' + country.Country + '>');
+    var imageElement = $('<img src=\'https://www.countryflags.io/' + country.CountryCode + '/flat/64.png\'' + 'width=\'200\' height=\'200\' alt=' + country.Country + '>');
 
     // add last updated element
     var dateElement = $('<p>Last updated:' + country.Date + '</p>');
@@ -102,11 +102,8 @@ var covid19Repository = (function() {
     $modalBodyContainer.append(dateElement);
   }
 
-  var dialogPromiseReject; // This can be set later, by showDialog
-
   // function to show all country details in console
   function showDetails(item) {
-    console.log(item);
     showModal('COVID-19', item);
   }
 
@@ -140,10 +137,9 @@ var covid19Repository = (function() {
       });
       addGlobalDataTableStructure();
       addCountryTableHeadline();
-    }).catch(function(e) {
+    }).catch(function() {
       hideLoadingMessage();
       addErrorMessage();
-      console.error(e);
     })
   }
 
@@ -153,9 +149,8 @@ var covid19Repository = (function() {
     return fetch(url).then(function(response) {
       hideLoadingMessage();
       return response.json();
-    }).catch(function(e) {
+    }).catch(function() {
       hideLoadingMessage();
-      console.error(e);
     });
   }
 
@@ -177,8 +172,8 @@ covid19Repository.loadList().then(function() {
 });
 
 // Header part
-var headerTitle = $('<h1 class="headerTitle">COVID-19 Tracker</h1>');
+var headerTitle = $('<h1 class=\'headerTitle\'>COVID-19 Tracker</h1>');
 $('.header').prepend(headerTitle);
 
-var virusImage = $('<img src="./img/virus.png" class="virusImage" alt="image of corona virus">');
+var virusImage = $('<img src=\'./img/virus.png\' class=\'virusImage\' alt=\'image of corona virus\'>');
 $('.work1').append(virusImage);
