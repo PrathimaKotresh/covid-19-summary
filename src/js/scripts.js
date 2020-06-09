@@ -1,4 +1,5 @@
-var covid19Repository = (function() {
+var covid19Repository = (function () {
+  'use strict';
   var covid19CountriesList = [];
   var globalData;
   var apiUrl = 'https://api.covid19api.com/summary';
@@ -18,18 +19,18 @@ var covid19Repository = (function() {
     var $globalFactsListGroup = $('.globalFactsListGroup');
     var $globalFactsHeading = $('.globalFactsHeading');
     $globalFactsHeading
-      .append('<tr><th>Global Quick Facts:</th></tr>')
+      .append('<tr><th>Global Quick Facts:</th></tr>');
     $.each(globalData, function(key, value) {
       // add row
       $globalFactsListGroup
-        .append('<li class=\'list-group-item\'>' + key + ' : ' + value + '</li>')
+        .append('<li class=\'list-group-item\'>' + key + ' : ' + value + '</li>');
     });
   }
 
   function addCountryTableHeadline() {
     var $countryTableHeadline = $('.countryTableHeadline');
     $countryTableHeadline
-      .append('<tr><th>Country Name</th><th>Total Cases</th><th>More Details</th></tr>')
+      .append('<tr><th>Country Name</th><th>Total Cases</th><th>More Details</th></tr>');
   }
 
   // funtion to create list of button to each country in frontend
@@ -140,7 +141,7 @@ var covid19Repository = (function() {
     }).catch(function() {
       hideLoadingMessage();
       addErrorMessage();
-    })
+    });
   }
 
   function loadDetails(item) {
